@@ -1,0 +1,359 @@
+body {
+    font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+    background-attachment: fixed;
+    color: #1e3a2a;
+    line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.3) 0%, transparent 20%),
+        radial-gradient(circle at 90% 70%, rgba(139, 195, 74, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 30% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 35%),
+        radial-gradient(circle at 70% 30%, rgba(165, 214, 167, 0.25) 0%, transparent 25%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(135deg, #2c7a4d 0%, #1b5e2a 100%);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,40,0,0.2);
+    position: relative;
+    z-index: 1;
+    border-bottom: 3px solid #ffd54f;
+}
+
+h1::after {
+    content: "🥝 🍎 🍌";
+    font-size: 20px;
+    margin-left: 15px;
+    opacity: 0.9;
+}
+
+.nav-bar {
+    text-align: center;
+    background: rgba(31, 77, 49, 0.95);
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #ffb74d;
+}
+
+.nav-bar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-bar a:hover {
+    background: #ffb74d;
+    color: #1f4d31;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255,180,70,0.4);
+}
+
+.goal-section {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 25px auto;
+    max-width: 650px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(44,122,77,0.2);
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+select, input {
+    padding: 12px 18px;
+    margin: 8px;
+    border: 2px solid rgba(200, 230, 200, 0.8);
+    border-radius: 30px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #ffb74d;
+    box-shadow: 0 0 0 4px rgba(255, 180, 77, 0.2);
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+    color: #1f4d31;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(255, 152, 0, 0.4);
+    color: white;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#fruitDisplay, #planContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 30px auto;
+    gap: 25px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.fruit-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 250px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 10px 25px rgba(0,40,0,0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 250px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 10px 25px rgba(0,40,0,0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.fruit-card::before, .plan-card::before {
+    content: "🍃";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 60px;
+    opacity: 0.1;
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+.fruit-card:hover, .plan-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 35px rgba(44,122,77,0.25);
+    background: white;
+}
+
+.fruit-card h3, .plan-card h4 {
+    margin: 0 0 15px 0;
+    color: #1f4d31;
+    border-bottom: 2px dashed #ffb74d;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.fruit-card p, .plan-card p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #2a4a3a;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+    background: rgba(232, 245, 233, 0.5);
+    border-radius: 8px;
+}
+
+.fruit-card p strong, .plan-card p strong {
+    color: #ff9800;
+    font-weight: 700;
+}
+
+.fruit-card button {
+    margin: 15px 3px 5px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    color: #1f4d31;
+    border: 1px solid #a5d6a7;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    font-weight: 600;
+}
+
+.plan-card button {
+    margin: 12px 3px 5px 0;
+    padding: 8px 15px;
+    font-size: 12px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    color: #1f4d31;
+    border: 1px solid #a5d6a7;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    font-weight: 600;
+}
+
+.fruit-card button:hover, .plan-card button:hover {
+    background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+    color: white;
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(255, 152, 0, 0.3);
+}
+
+.stats {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(44,122,77,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,180,77,0.3);
+}
+
+.stats h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f4d31;
+    background: rgba(255, 180, 77, 0.2);
+    padding: 10px 25px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,180,77,0.3);
+}
+
+.edit-section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,40,0,0.15);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+.edit-section::after {
+    content: "✎";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    opacity: 0.1;
+    color: #ff9800;
+}
+
+.edit-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #1f4d31;
+    font-weight: 700;
+}
+
+.edit-section input {
+    width: 90%;
+    margin: 15px auto;
+    padding: 14px;
+    display: block;
+    border: 2px solid rgba(200, 230, 200, 0.8);
+    border-radius: 40px;
+    background: white;
+}
+
+.edit-section input[readonly] {
+    background: rgba(245, 255, 240, 0.8);
+    border: 2px dashed #ffb74d;
+    color: #1f4d31;
+    font-weight: 600;
+}
+
+.edit-section button {
+    margin: 10px;
+    min-width: 120px;
+    padding: 12px 25px;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+    color: #1f4d31;
+    box-shadow: 0 4px 10px rgba(129, 199, 132, 0.3);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+    color: white;
+}
+
+#topSugarResult {
+    text-align: center;
+    color: #1f4d31;
+    margin: 20px auto;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, rgba(255, 180, 77, 0.2) 0%, rgba(255, 152, 0, 0.2) 100%);
+    border-radius: 50px;
+    max-width: 500px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,180,77,0.4);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Personalized Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>My Smart Nutrition Plan</h1>
+
+    <div class="nav-bar">
+        <a href="index.html">Home</a>
+        <a href="recommend.html">My Plan</a>
+    </div>
+
+    <div class="stats">
+        <h3 id="totalCal">Total: 0</h3>
+        <h3 id="avgCal">Average: 0</h3>
+    </div>
+
+    <div id="planContainer"></div>
+
+    <div class="edit-section">
+        <h3>Edit Fruit Quantity</h3>
+        <input type="text" id="editName" placeholder="Fruit Name" readonly disabled>
+        <input type="text" id="editQuantity" placeholder="Enter quantity">
+        <div>
+            <button onclick="updateQuantity()">Update Quantity</button>
+            <button onclick="window.location='index.html'" class="back-btn">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="crud.js"></script>
+</body>
+</html>

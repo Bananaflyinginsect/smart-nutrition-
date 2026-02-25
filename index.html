@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Nutrition Advisor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Smart Nutrition Advisor</h1>
+
+    <div class="nav-bar">
+        <a href="index.html">Home</a>
+        <a href="recommend.html">My Plan</a>
+    </div>
+
+    <div class="goal-section">
+        <label>Choose Your Health Goal:</label>
+        <select id="healthGoal">
+            <option value="all">Show All Fruits</option>
+            <option value="cut">Weight Control (Under 60 Calories)</option>
+            <option value="bulk">Muscle Support (Protein ≥ 1g)</option>
+            <option value="reduceSugar">Low Sugar Option (Sugar < 10g)</option>
+        </select>
+
+        <button onclick="analyzeFruits()">Analyze</button>
+        <button onclick="window.location='recommend.html'">My Plan</button>
+    </div>
+
+    <div id="fruitDisplay"></div>
+    <h3 id="topSugarResult"></h3>
+
+    <script src="crud.js"></script>
+</body>
+</html>
